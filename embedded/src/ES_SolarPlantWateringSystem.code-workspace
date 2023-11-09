@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../../../../Embeded/ES_SolarPlantWateringSystem"
+		},
+		{
+			"name": "embedded",
+			"path": ".."
+		}
+	],
+	"settings": {}
+}

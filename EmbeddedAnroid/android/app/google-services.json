@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "278863119144",
+    "firebase_url": "https://embedded-67be3-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "embedded-67be3",
+    "storage_bucket": "embedded-67be3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:278863119144:android:f1318b20c517b6a893461d",
+        "android_client_info": {
+          "package_name": "com.embeddedanroid"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxP3cFJla2vuVH4R-gCVwb4Eqmh3IF_C4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
