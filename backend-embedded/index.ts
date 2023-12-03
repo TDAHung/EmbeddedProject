@@ -2,11 +2,16 @@
 const mqtt = require('mqtt');
 const admin = require('firebase-admin');
 const { getFirestore } = require('firebase-admin/firestore');
-const serviceAccount = require('./embedded-67be3-firebase-adminsdk-bmkdr-d6358b2c40.json');
+require('dotenv').config();
+const firebasePrivateKey = process.env.FIREBASE_PRIVATE_KEY;
+
+if (!firebasePrivateKey) {
+    throw new Error('Firebase private key is not defined in the environment variables.');
+}
+
+const serviceAccount = require(firebasePrivateKey);
 
 // Adafruit configuration
-const AIO_USERNAME = 'Suchuru';
-const AIO_KEY = 'aio_rctQ44tIQlubyfnpLYr68iav0PB8';
 const FEED_NAME = 'button';
 
 // Firestore Init
@@ -20,16 +25,16 @@ const db = getFirestore();
 const client = mqtt.connect({
     host: 'io.adafruit.com',
     port: 1883,
-    username: AIO_USERNAME,
-    password: AIO_KEY,
+    username: process.env.AIO_USERNAME,
+    password: process.env.AIO_PASSWORD,
 });
 
 
 client.on('connect', () => {
     console.log('Connected to io.adafruit.com successfully');
-    client.subscribe(`${AIO_USERNAME}/feeds/button`);
-    client.subscribe(`${AIO_USERNAME}/feeds/moisturev1`);
-    client.subscribe(`${AIO_USERNAME}/feeds/moisturev2`);
+    client.subscribe(`${process.env.AIO_USERNAME}/feeds/button`);
+    client.subscribe(`${process.env.AIO_USERNAME}/feeds/moisturev1`);
+    client.subscribe(`${process.env.AIO_USERNAME}/feeds/moisturev2`);
 });
 
 client.on('message', (topic: String, message: String) => {
